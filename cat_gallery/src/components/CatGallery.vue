@@ -20,7 +20,8 @@ import CatModal from './CatModal.vue';
                 showModal:false,
                 image: ""
             }
-        }, methods:{
+        }, 
+        methods:{
             toggleModal(image){
                 this.showModal = !this.showModal
                 this.image = image
@@ -41,6 +42,5 @@ import CatModal from './CatModal.vue';
   flex-wrap: wrap;
   flex-direction: row;
 }
-
 
 </style>

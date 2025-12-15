@@ -37,9 +37,9 @@ export default{
     }
 
     @keyframes open{
-    0%{height: 0px;}
-    100%{height: 80%;}
-}
+        0%{height: 0px;}
+        100%{height: 80%;}
+    }
     img.modal_img{
         width: 80%;
         height: 80%;

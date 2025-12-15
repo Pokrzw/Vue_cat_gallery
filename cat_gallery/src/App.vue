@@ -17,8 +17,6 @@ export default {
   components:{CatGallery},
   data(){
     return{
-      srcToPass: "",
-      showModal: false, 
       isLoading: true,
       images:[]
     }
@@ -29,13 +27,6 @@ export default {
       getImages(6)
       .then(data => {this.images = data; this.isLoading = false})
       .catch(e => console.log(e))
-    
-
-    // fetch("https://api.thecatapi.com/v1/images/search?limit=6")
-    //   .then(res => res.json())
-    //   .then(data => {this.images = data.slice(0,6); this.isLoading = false})
-    //   .catch(e => console.log(e))
-
     }
   },
   mounted(){
@@ -45,11 +36,10 @@ export default {
 </script>
 
 <style>
-
 html, body {
     margin: 0;
     height: 100%;
-      background: linear-gradient(to right, #2193b0, #6dd5ed); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #2193b0, #6dd5ed); 
 }
 .loaderContainer{
   width: 100vw;
@@ -72,14 +62,15 @@ html, body {
     animation: rotation 1s linear infinite;
     }
 
-    @keyframes rotation {
+@keyframes rotation {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-    } 
+} 
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -113,28 +104,19 @@ html, body {
   height: 40vh;
   overflow: visible;
   display: flex;
-  /* background-color: red; */
 }
 
 
 img{
   width: 100%;
-
   border-radius: 15px;
   border: #FFF 1px solid;
-height: 100%;
-object-fit: cover;
+  height: 100%;
+  object-fit: cover;
 }
-
-img,image{
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0);    
-}
-
-
 
 img.gallery-img{
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0);
-
   transition: 0.5s;
 }
 img.gallery-img:hover{    
