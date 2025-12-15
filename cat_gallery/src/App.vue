@@ -3,17 +3,17 @@
     <span class="loader"></span>
   </div>
   <div v-if="!isLoading" class="container">
-    <Gallery :images="images"/>
+    <CatGallery :images="images"/>
   <button @click="sendRequest">Refresh</button>
   </div>
   
 </template>
 
 <script>
-import Gallery from './components/Gallery.vue';
+import CatGallery from './components/CatGallery.vue'; 
 export default {
   name: 'App',
-  components:{Gallery},
+  components:{CatGallery},
   data(){
     return{
       srcToPass: "",
@@ -44,6 +44,7 @@ export default {
 html, body {
     margin: 0;
     height: 100%;
+      background: linear-gradient(to right, #2193b0, #6dd5ed); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .loaderContainer{
   width: 100vw;
@@ -80,7 +81,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   width: 100vw;
-  background-color: rebeccapurple;
   color: #2c3e50;
   height: 100vh;
   display: flex;
@@ -92,16 +92,12 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-.gallery{
-  display: flex;
-  flex-wrap: wrap;
-}
 
 .wrapper{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 0 25%;
+  
  margin: 10px;
   width: fit-content;
 }
@@ -110,18 +106,45 @@ html, body {
   padding: 10px;
   width: 28vw;
   height: 40vh;
+  overflow: visible;
+  display: flex;
+  /* background-color: red; */
 }
+
 
 img{
   width: 100%;
+
   border-radius: 15px;
+  border: #FFF 1px solid;
 height: 100%;
 object-fit: cover;
+}
+
+img,image{
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0);    
+}
+
+
+
+img.gallery-img{
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0);
+
+  transition: 0.5s;
+}
+img.gallery-img:hover{    
+  height: 102%;
+  width: 102%;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.7);
 }
 
 button{
   align-self: center;
   width: 100px;
   height: 50px;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
 }
 </style>

@@ -1,46 +1,51 @@
 <template>
-    <div class="backdrop">
+    <div class="backdrop" @click="closeModal">
         <div class="modal">
-            <!-- <img :src="source" alt=""> -->
-             aaaa
+            <img :src="image" alt="modal" class="modal_img" >
         </div>
     </div>
 </template>
 
 <script>
-    export default{
-        props: ['source'],
-        // emits: ["closeModal"],
-        // methods: {
-        //     closeModal(){
-        //         this.$emit('close');
-        //     }
-        // }
+export default{
+    props: ['image'],
+    methods:{
+        closeModal(){
+            this.$emit('close')
+        }
     }
+}
 </script>
 
-<style >
-    img{
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-    .modal{
-        width: 100px;
-        height: 100px;
-    }
-     /* .modal{
-        width: 80vw;
-        height: 70vh;
-        padding: 20px;
-        margin: 100px auto;
-        background-color: white;
-        border-radius: 10px;
-    } */
+<style scoped>
     .backdrop{
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.75);
-        width: 100%;
-        height: 100px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top:0;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        height: 100vh;
     }
+
+    .modal{
+        width: 80vw;
+        height: 80vh;
+    }
+
+    @keyframes open{
+    0%{height: 0px;}
+    100%{height: 80%;}
+}
+    img.modal_img{
+        width: 80%;
+        height: 80%;
+        animation-name: open;
+        animation-duration: 1s;
+        object-fit: cover;
+    }
+
 </style>
