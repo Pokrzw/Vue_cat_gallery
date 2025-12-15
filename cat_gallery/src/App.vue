@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoading" :class="{loaderContainer:isLoading}">
+  <div v-if="isLoading" :class="{loader_container:isLoading}">
     <span class="loader"></span>
   </div>
   <div v-if="!isLoading" class="container">
@@ -41,7 +41,7 @@ html, body {
     height: 100%;
     background: linear-gradient(to right, #2193b0, #6dd5ed); 
 }
-.loaderContainer{
+.loader_container{
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
@@ -115,11 +115,11 @@ img{
   object-fit: cover;
 }
 
-img.gallery-img{
+img.gallery_img{
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0);
   transition: 0.5s;
 }
-img.gallery-img:hover{    
+img.gallery_img:hover{    
   height: 102%;
   width: 102%;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.7);

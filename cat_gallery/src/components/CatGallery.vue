@@ -4,7 +4,7 @@
     </div>
     <div class="gallery_container">
         <div v-for="image in images" class="image" :key="image.id">
-        <img :src="image.url" :alt="image.url" class="gallery-img" @click="toggleModal(image.url)">
+        <img :src="image.url" :alt="image.url" class="gallery_img" @click="toggleModal(image.url)">
     </div>
     </div>
 </template>
