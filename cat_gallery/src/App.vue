@@ -4,13 +4,14 @@
   </div>
   <div v-if="!isLoading" class="container">
     <CatGallery :images="images"/>
-  <button @click="sendRequest">Refresh</button>
+  <button @click="sendRequest">Odśwież koty</button>
   </div>
   
 </template>
 
 <script>
 import CatGallery from './components/CatGallery.vue'; 
+import { getImages } from './CatService';
 export default {
   name: 'App',
   components:{CatGallery},
@@ -24,13 +25,17 @@ export default {
   },
   methods: {
     sendRequest(){
-    this.isLoading = true
-
-    fetch("https://api.thecatapi.com/v1/images/search?limit=6")
-      .then(res => res.json())
-      .then(data => {this.images = data.slice(0,6); this.isLoading = false})
+      this.isLoading = true
+      getImages(6)
+      .then(data => {this.images = data; this.isLoading = false})
       .catch(e => console.log(e))
     
+
+    // fetch("https://api.thecatapi.com/v1/images/search?limit=6")
+    //   .then(res => res.json())
+    //   .then(data => {this.images = data.slice(0,6); this.isLoading = false})
+    //   .catch(e => console.log(e))
+
     }
   },
   mounted(){
